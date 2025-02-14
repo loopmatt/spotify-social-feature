@@ -1,5 +1,6 @@
 import React from 'react';
-import { Home, Search, Library, Users, PlayCircle, Share2, Music } from 'lucide-react';
+import { Home, Search, Library, Users, PlayCircle, Share2 } from 'lucide-react';
+import Image from 'next/image';
 
 const SpotifySocial = () => {
   const friends = [
@@ -34,7 +35,6 @@ const SpotifySocial = () => {
   ];
 
   return (
-    // iPhone 12/13/14 dimensions (390x844)
     <div className="bg-black w-full max-w-md mx-auto h-screen relative overflow-hidden">
       {/* Status Bar Area */}
       <div className="h-12 bg-zinc-900" />
@@ -69,11 +69,14 @@ const SpotifySocial = () => {
                 <div className="mb-4">
                   <div className="text-sm text-zinc-400 mb-2">Currently Playing:</div>
                   <div className="flex items-center space-x-3">
-                    <img 
-                      src={friend.currentTrack.albumArt} 
-                      alt="Album art" 
-                      className="w-16 h-16 rounded-md"
-                    />
+                    <div className="relative w-16 h-16">
+                      <Image 
+                        src={friend.currentTrack.albumArt}
+                        alt="Album art"
+                        fill
+                        className="rounded-md object-cover"
+                      />
+                    </div>
                     <div>
                       <div className="font-medium text-white">{friend.currentTrack.name}</div>
                       <div className="text-sm text-zinc-400">{friend.currentTrack.artist}</div>
@@ -87,11 +90,14 @@ const SpotifySocial = () => {
                   <div className="space-y-2">
                     {friend.recentTracks.map((track, idx) => (
                       <div key={idx} className="flex items-center space-x-3">
-                        <img 
-                          src={track.albumArt} 
-                          alt="Album art" 
-                          className="w-12 h-12 rounded-md"
-                        />
+                        <div className="relative w-12 h-12">
+                          <Image 
+                            src={track.albumArt}
+                            alt="Album art"
+                            fill
+                            className="rounded-md object-cover"
+                          />
+                        </div>
                         <div>
                           <div className="text-sm text-zinc-300">{track.name}</div>
                           <div className="text-xs text-zinc-400">{track.artist}</div>
