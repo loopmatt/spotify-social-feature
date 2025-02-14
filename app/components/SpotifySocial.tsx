@@ -10,11 +10,11 @@ const SpotifySocial = () => {
       currentTrack: {
         name: 'Midnight City',
         artist: 'M83',
-        albumArt: '/api/placeholder/64/64'
+        albumArt: 'https://placehold.co/400x400/1DB954/FFFFFF/png'
       },
       recentTracks: [
-        { name: 'Dreams', artist: 'Fleetwood Mac', albumArt: '/api/placeholder/48/48' },
-        { name: 'Blinding Lights', artist: 'The Weeknd', albumArt: '/api/placeholder/48/48' }
+        { name: 'Dreams', artist: 'Fleetwood Mac', albumArt: 'https://placehold.co/400x400/1DB954/FFFFFF/png' },
+        { name: 'Blinding Lights', artist: 'The Weeknd', albumArt: 'https://placehold.co/400x400/1DB954/FFFFFF/png' }
       ],
       isOnline: true
     },
@@ -24,11 +24,11 @@ const SpotifySocial = () => {
       currentTrack: {
         name: 'Starboy',
         artist: 'The Weeknd',
-        albumArt: '/api/placeholder/64/64'
+        albumArt: 'https://placehold.co/400x400/1DB954/FFFFFF/png'
       },
       recentTracks: [
-        { name: 'Take on Me', artist: 'a-ha', albumArt: '/api/placeholder/48/48' },
-        { name: 'Under Pressure', artist: 'Queen, David Bowie', albumArt: '/api/placeholder/48/48' }
+        { name: 'Take on Me', artist: 'a-ha', albumArt: 'https://placehold.co/400x400/1DB954/FFFFFF/png' },
+        { name: 'Under Pressure', artist: 'Queen, David Bowie', albumArt: 'https://placehold.co/400x400/1DB954/FFFFFF/png' }
       ],
       isOnline: true
     }
@@ -72,9 +72,11 @@ const SpotifySocial = () => {
                     <div className="relative w-16 h-16">
                       <Image 
                         src={friend.currentTrack.albumArt}
-                        alt="Album art"
+                        alt={`Album art for ${friend.currentTrack.name}`}
                         fill
                         className="rounded-md object-cover"
+                        sizes="64px"
+                        priority={index === 0}
                       />
                     </div>
                     <div>
@@ -93,9 +95,10 @@ const SpotifySocial = () => {
                         <div className="relative w-12 h-12">
                           <Image 
                             src={track.albumArt}
-                            alt="Album art"
+                            alt={`Album art for ${track.name}`}
                             fill
                             className="rounded-md object-cover"
+                            sizes="48px"
                           />
                         </div>
                         <div>
